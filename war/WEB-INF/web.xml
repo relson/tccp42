@@ -5,12 +5,12 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>Tccp42</servlet-name>
-		<servlet-class>br.unip.ccp42.Tccp42Servlet</servlet-class>
-	</servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>br.unip.tccp42.visao.web.servlet.LoginServlet</servlet-class>
+	</servlet>	
 	<servlet-mapping>
-		<servlet-name>Tccp42</servlet-name>
-		<url-pattern>/tccp42</url-pattern>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/servlet/login/*</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
