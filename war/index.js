@@ -21,28 +21,20 @@ function getXMLObject() // XML OBJECT
 
 var xmlhttp = new getXMLObject(); // xmlhttp holds the ajax object
 
-function efetuarLogin() {
+function configurarUsuario() {
 	
 	var divMensagem = document.getElementById("lblMensagem");
-	var img = document.getElementById("imgCarregando");
-	
-	if (!validarLogin()){
-		return false;
-	}
-	
-	img.style.display = "block";
-	divMensagem.innerHTML = "Aguarde...";
 	
 	if (xmlhttp) {
 		var usuario = document.getElementById("usuario");
 		var senha = document.getElementById("senha");
-		xmlhttp.open("POST", "../servlet/login", true); // getname will
+		xmlhttp.open("GET", "../servlet/login", true); // getname will
 																// be the
 																// servlet name
 		xmlhttp.onreadystatechange = handleServerResponse;
 		xmlhttp.setRequestHeader('Content-Type',
 				'application/x-www-form-urlencoded');
-		xmlhttp.send("usuario=" + usuario.value + "&senha="+senha.value);
+		xmlhttp.send("");
 	}
 
 	return false;
@@ -59,17 +51,14 @@ function handleServerResponse() {
 				
 				img.style.display = "none";
 				
-				var msg = eval("(" + xmlhttp.responseText + ")");
-
-				divMensagem.innerHTML = msg.descricao;
-
-				if (!msg.erro){
-					
-					if (msg.corpo == "admin")
-						window.location = "../admin/";
-					else
-						window.location = "../usuario/analisar-perfil-investidor.html";
-				} 
+				var usuario = eval("(" + xmlhttp.responseText + ")");
+				
+				var spanUsuario = document.getElementById("spanTitulo");
+				
+				spanUsuario.innerHTML = "Usuario: <strong>"+ usuario.nome  + ".</strong>";
+				
+				return true;
+				
 			} catch (ex) {
 				divMensagem.innerHTML = "Erro: " + e.message + "<br>Tipo:" + e.name;
 			}
@@ -95,14 +84,14 @@ function validarLogin() {
 		var usuarioTextBox = document.getElementById("usuario");
 
 		if (usuarioTextBox.value == "") {
-			mensagem += "<p>É necessário informar um nome de usuário.</p>";
+			mensagem += "É necessário informar um nome de usuário.";
 			valido = false;
 		}
 
 		var senhaTextBox = document.getElementById("senha");
 
 		if (senhaTextBox.value == "") {
-			mensagem += "<p>É necessário informar uma senha.</p>";
+			mensagem += "É necessário informar uma senha.";
 			valido = false;
 		}
 
@@ -123,4 +112,8 @@ function validarLogin() {
 	}
 
 	return false;
+}
+
+function configuarMenu(nomeMenu){
+	
 }

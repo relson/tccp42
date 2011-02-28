@@ -4,11 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>UNIP CCP42 - Analisador Financeiro [Login]</title>
 <link href="../css/Estilo.css" type="text/css" rel="stylesheet">
-<script language="JavaScript" type="text/javascript" src="login.js">
+<script language="JavaScript" type="text/javascript" src="usuario.js">
 </script>
-
+<script language="JavaScript" type="text/javascript" src="../index.js">
+</script>
 </head>
-<body>
+<body onload="configurarUsuario();">
 <div id="conteiner">
 
 <div id="menu">
@@ -40,22 +41,25 @@ usu&aacute;rio Logado</span></div>
 
 <form action="" method="post">
 <div id="divH2Login">
-<h2><a id="lnkInserir" title="Inserir Novo Usu&aacute;rio" href="../usuario/ManterUsuariosInserir.html"> <img alt="Inserir Novo Usu&aacute;rio" src="../imagem/add16x16.png"></a>
-Login</h2>
+<h2><a id="lnkInserir" title="Cancelar Inserir Novo Usu&aacute;rio" href="/"> <img alt="Cancelar - Inserir Novo Usu&aacute;rio" src="../imagem/cancelar16x16.png"></a>
+Inserir Usu&aacute;rio</h2>
 <hr>
 <div style="padding-left: 18px;">
 <div id="divSeta"></div>
 </div>
-<div id="divFormulario" style="width: 240px;"><label for="usuario">Usu&aacute;rio:
-<input id="usuario" name="usuario" value="" type="text"> </label> <label for="senha">Senha: <input id="senha" name="senha" value="" type="password"> </label></div>
-<input id="btnLogin" onclick="return efetuarLogin();" type="submit" value="Login"> <input id="btnLimpar" onclick="carregar();" type="reset" value="Limpar"></div>
+<div id="divFormulario" style="width: 240px;">
+<label for="nome">Nome*:
+<input id="nome" name="nome" value="" type="text" style="width: 100%;">
+</label>
+<label for="usuario">Login*:
+<input id="usuario" name="usuario" value="" type="text"> </label> 
+<label for="senha">Senha*: <input id="senha" name="senha" value="" type="password"> </label>
+<input alt="Marque para receber novidades sobre o site por e-mail" id="permiteNotificiacao" name="permiteNotificiacao" type="checkbox"><label title="Marque para receber novidades sobre o site por e-mail" for="permiteNotificiacao" >Permitir enviar e-mail com novidades.</label>
+</div>
+<input id="btnLogin" onclick="return inserirUsuario();" type="submit" value="Gravar"> <input id="btnLimpar" onclick="carregar();" type="reset" value="Limpar"></div>
 </form><div id="divMensagemConteiner"><span>Mensagem</span>
 <div id="divSeta"></div>
-<div id="divMensagem"><label id="lblMensagem"> Entre com
-usu&aacute;rio e senha ou cadastre <a
-	title="Inserir Novo Usu&aacute;rio"
-	href="../usuario/ManterUsuariosInserir.html"> um novo
-usu&aacute;rio</a></label></div>
+<div id="divMensagem"><label id="lblMensagem">*Campos obrigat&oacute;rios</label></div>
 
 </div>
 </div>

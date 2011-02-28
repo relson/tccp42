@@ -21,12 +21,12 @@ function getXMLObject() // XML OBJECT
 
 var xmlhttp = new getXMLObject(); // xmlhttp holds the ajax object
 
-function efetuarLogin() {
+function inserirUsuario() {
 	
 	var divMensagem = document.getElementById("lblMensagem");
 	var img = document.getElementById("imgCarregando");
 	
-	if (!validarLogin()){
+	if (!validar()){
 		return false;
 	}
 	
@@ -34,15 +34,18 @@ function efetuarLogin() {
 	divMensagem.innerHTML = "Aguarde...";
 	
 	if (xmlhttp) {
+		var nome = document.getElementById("nome");
 		var usuario = document.getElementById("usuario");
 		var senha = document.getElementById("senha");
-		xmlhttp.open("POST", "../servlet/login", true); // getname will
+		var permiteNotificiacao = document.getElementById("permiteNotificiacao");
+		
+		xmlhttp.open("PUT", "../servlet/usuario", true); // getname will
 																// be the
 																// servlet name
 		xmlhttp.onreadystatechange = handleServerResponse;
 		xmlhttp.setRequestHeader('Content-Type',
 				'application/x-www-form-urlencoded');
-		xmlhttp.send("usuario=" + usuario.value + "&senha="+senha.value);
+		xmlhttp.send("nome=" + nome.value + "&usuario=" + usuario.value + "&senha="+senha.value+"&permiteNotificiacao="+permiteNotificiacao.value);
 	}
 
 	return false;
@@ -65,10 +68,14 @@ function handleServerResponse() {
 
 				if (!msg.erro){
 					
-					if (msg.corpo == "admin")
-						window.location = "../admin/";
+					divMensagem.innerHTML = msg.descricao + "<p>Redirecionando para tela de login.</p>";
+					
+					setTimeout("window.location = \"../admin/administrar.html\"");
+					
+					/*if (msg.corpo == "admin")
+						window.location = "../admin/administrar.html";
 					else
-						window.location = "../usuario/analisar-perfil-investidor.html";
+						window.location = "../usuario/analisar-perfil-investidor.html";*/
 				} 
 			} catch (ex) {
 				divMensagem.innerHTML = "Erro: " + e.message + "<br>Tipo:" + e.name;
@@ -83,7 +90,7 @@ function handleServerResponse() {
 	}
 }
 
-function validarLogin() {
+function validar() {
 
 	var divMensagem = document.getElementById("lblMensagem");
 	
@@ -92,17 +99,24 @@ function validarLogin() {
 		var valido = true;
 		var mensagem = "";
 
+		var nomeTextBox = document.getElementById("nome");
+
+		if (nomeTextBox.value == "") {
+			mensagem += "<p>É necessário informar um <a title=\"Click para configurar o foco no campo\" href=\"javascript:document.getElementById('nome').focus();\"><strong>nome</strong></a> para o usuário.<p>";
+			valido = false;
+		}
+		
 		var usuarioTextBox = document.getElementById("usuario");
 
 		if (usuarioTextBox.value == "") {
-			mensagem += "<p>É necessário informar um nome de usuário.</p>";
+			mensagem += "<p>É necessário informar um <a title=\"Click para configurar o foco no campo\" href=\"javascript:document.getElementById('usuario').focus();\"><strong>login</strong></a> para o usuário.<p>";
 			valido = false;
 		}
 
 		var senhaTextBox = document.getElementById("senha");
 
 		if (senhaTextBox.value == "") {
-			mensagem += "<p>É necessário informar uma senha.</p>";
+			mensagem += "<p>É necessário informar uma <a title=\"Click para configurar o foco no campo\" href=\"javascript:document.getElementById('senha').focus();\"><strong>senha</strong></a> para o usuário.<p>";
 			valido = false;
 		}
 

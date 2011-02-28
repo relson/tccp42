@@ -2,7 +2,8 @@
 
 body {
 	display: ;
-	font-family: arial, serif;
+	font-family: arial, helvetica, sans-serif;
+	font-size: small;
 	border-width: 50px;
 	border-color: #c0deed;
 	border-style: solid;
@@ -58,6 +59,18 @@ h2 {
 	padding-left: 100px;
 	padding-top: 10px;
 	background-image: url("../imagem/signin34x36.png");
+	background-repeat: no-repeat;
+	background-position: 100px 15px;
+	border-bottom-width: thin;
+}
+
+#divH2Inicio {
+	background-image: url("../imagem/home36x36.png");
+}
+
+.divH2 {
+	padding-left: 100px;
+	padding-top: 10px;
 	background-repeat: no-repeat;
 	background-position: 100px 15px;
 	border-bottom-width: thin;
