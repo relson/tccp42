@@ -27,7 +27,7 @@ public class Analisador {
 	}
 
 	/**
-	 * @param hipoteses Cole��o de Hipoteses a ser configurada.
+	 * @param hipoteses Colecao de Hipoteses a ser configurada.
 	 */
 	public void setHipoteses(ArrayList<Hipotese> hipotese) {
 		this.hipoteses = hipotese;
