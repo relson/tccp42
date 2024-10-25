@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+a { 
+	color: #000;
+}
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+h1{   
+   text-align: center;
+}
+
+h2{   
+   color: red;
+}
+
+h3{   
+   color: green;
+}
+
+hr {
+	 border-style: groove;
+}
+
+fieldset{
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+legend{
+   font-weight: bold;  
+   color: green; 
+}
+
+span {
+	padding-right: 5px;
+}
+	
+p{   
+   text-align: justify;
+}
+
+hr{
+	color: gray;	
+}
