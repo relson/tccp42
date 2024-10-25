@@ -91,11 +91,11 @@ public class UsuarioTD extends TradutorBase {
 	}
 
 	/**
-	 * Obtém uma entidade do banco de dados de usuário
-	 * @param nomeUsuario nome de login do usuário
-	 * @param senha senha do usuário
-	 * @return se usuário e senha existirem retorna um objeto Usuario
-	 * @throws Exception Se não econtrar um usuário
+	 * ObtÃ©m uma entidade do banco de dados de usuÃ¡rio
+	 * @param nomeUsuario nome de login do usuÃ¡rio
+	 * @param senha senha do usuÃ¡rio
+	 * @return se usuÃ¡rio e senha existirem retorna um objeto Usuario
+	 * @throws Exception Se nÃ£o econtrar um usuÃ¡rio
 	 */
 	public Usuario efetuarLogin(String nomeUsuario, String senha)
 			throws Exception{
@@ -103,7 +103,7 @@ public class UsuarioTD extends TradutorBase {
 		
 		String sql = obterSQLTodos();
 		
-		sql += " WHERE nome_entidade = ? and senha = ?";
+		sql += " WHERE nome_entidade = '" + nomeUsuario + "'  and senha = ?";
 		
 		Utils utils = new Utils();
 		
@@ -115,7 +115,7 @@ public class UsuarioTD extends TradutorBase {
 		}
 		else
 		{
-			throw new Exception("Usuário ou senha inválido.");
+			throw new Exception("UsuÃ¡rio ou senha invÃ¡lido.");
 		}
 		utils.finalizarResultSet(resultSet);
 				
@@ -123,10 +123,10 @@ public class UsuarioTD extends TradutorBase {
 	}
 	
 	/**
-	 * Atualiza o perfil do usuário
+	 * Atualiza o perfil do usuÃ¡rio
 	 * @param usuario a ser atualizado o perfil
 	 * @param opcao a ser inserida no perfil
-	 * @throws ClassNotFoundException quando o driver de conexão não econtrado
+	 * @throws ClassNotFoundException quando o driver de conexÃ£o nÃ£o econtrado
 	 * @throws SQLException quando existe um erro no comando SQL a ser executado 
 	 */
 	public void inserirOpcaoPerfil(Usuario usuario, Opcao opcao) throws SQLException, ClassNotFoundException {
@@ -150,7 +150,7 @@ public class UsuarioTD extends TradutorBase {
 
 	@Override
 	public void atualizar(EntidadeBase entidade) {
-		// TODO Implementar M�todo
+		// TODO Implementar Método
 		
 	}
 
@@ -170,7 +170,7 @@ public class UsuarioTD extends TradutorBase {
 	}
 
 	/**
-	 * TODO Documentar M�todo
+	 * TODO Documentar Método
 	 * @param pergunta
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
@@ -210,7 +210,7 @@ public class UsuarioTD extends TradutorBase {
 	}
 
 	/**
-	 * TODO Documentar M�todo
+	 * TODO Documentar Método
 	 * @param entidade
 	 * @throws Exception 
 	 */
@@ -219,7 +219,7 @@ public class UsuarioTD extends TradutorBase {
 		Usuario usuario = this.obterPorNome(nome);
 		
 		if (usuario != null) {
-			throw new Exception("Já existe um usuário cadastrado com o nome informado.");
+			throw new Exception("JÃ¡ existe um usuÃ¡rio cadastrado com o nome informado.");
 		}
 		
 	}
