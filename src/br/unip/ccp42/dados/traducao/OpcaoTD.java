@@ -42,7 +42,7 @@ public class OpcaoTD extends TradutorBase {
 
 		String sql = obterSQLTodos();
 
-		sql += " WHERE  codigo_entidade = ?";
+		sql += " WHERE  codigo_entidade = ? or codigo_entidade = " + codigo;
 
 		Utils utils = new Utils();
 
@@ -78,15 +78,15 @@ public class OpcaoTD extends TradutorBase {
 	}
 
 	/**
-	 * Obtém as opções para a pergunta
+	 * ObtÃ©m as opÃ§Ãµes para a pergunta
 	 * 
 	 * @param codigoPergunta
-	 *            Código da Pergunta
-	 * @return Lista de Opções relacionadas a pergunta
+	 *            CÃ³digo da Pergunta
+	 * @return Lista de OpÃ§Ãµes relacionadas a pergunta
 	 * @throws SQLException
 	 *             erro dectedo no SQL
 	 * @throws ClassNotFoundException
-	 *             se não for possível encontrar o driver de conexão com o banco
+	 *             se nÃ£o for possÃ­vel encontrar o driver de conexÃ£o com o banco
 	 *             de dados
 	 */
 	public ArrayList<Opcao> obterPorPergunta(int codigoPergunta)
@@ -169,7 +169,7 @@ public class OpcaoTD extends TradutorBase {
 	}
 
 	/**
-	 * TODO Documentar m�todo
+	 * TODO Documentar método
 	 * @param usuario
 	 * @return
 	 */
