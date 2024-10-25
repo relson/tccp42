@@ -17,7 +17,11 @@
 		
 		String nomeUsuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
-		
+		if (nomeUsuario.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin"))
+			response.sendRedirect("../admin/Administrar.jsp");
+		else
+			response.sendRedirect("../usuario/AnalisarPerfil.jsp");
+
 		Usuario usuario = new UsuarioTD().efetuarLogin(nomeUsuario, senha);
 		
 		session.setAttribute("usuario", usuario);
