@@ -1,0 +1,21 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>TCCP42</groupId>
+  <artifactId>TCCP42</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Maven Quick Start Archetype</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <properties>
+    <sonar.organization>relson</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  </properties>
+</project>
