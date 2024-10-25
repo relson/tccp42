@@ -3,8 +3,8 @@ package br.unip.ccp42;
 import br.unip.ccp42.dados.TradutorBase;
 
 /**
- * Classe que tem os atributos básicos de um entidade.
- * Todas as classes de entidade a herdarão.
+ * Classe que tem os atributos bÃ¡sicos de um entidade.
+ * Todas as classes de entidade a herdarÃ£o.
  * @author relson
  *
  */
@@ -20,16 +20,16 @@ public abstract class EntidadeBase implements CRUD {
 	}
 	
 	/**
-	 * Obtém o código da entidade
-	 * @return inteiro que representa o identificador único para a entidade.
+	 * ObtÃ©m o cÃ³digo da entidade
+	 * @return inteiro que representa o identificador Ãºnico para a entidade.
 	 */
 	public int getCodigo() {
 		return codigo;
 	}
 	
 	/**
-	 * Configura o código da entidade
-	 * @param codigo inteiro que representa o identificador único para a entidade.
+	 * Configura o cÃ³digo da entidade
+	 * @param codigo inteiro que representa o identificador Ãºnico para a entidade.
 	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
@@ -48,7 +48,7 @@ public abstract class EntidadeBase implements CRUD {
 	}
 	
 	/**
-	 * TODO Documentar M�todo
+	 * TODO Documentar Método
 	 * @return
 	 */
 	protected TradutorBase getTradutorDados() {
@@ -64,7 +64,7 @@ public abstract class EntidadeBase implements CRUD {
 	public void carregar() throws Exception {
 		
 		if(this.getCodigo() == 0) {
-			throw new Exception("N�o existem atribuitos suficientes para obter a entidade");
+			throw new Exception("Não existem atribuitos suficientes para obter a entidade");
 		}
 		
 		EntidadeBase entidadeBase  =
@@ -76,6 +76,14 @@ public abstract class EntidadeBase implements CRUD {
 	@Override
 	public void excluir() throws Exception { 
 		this.getTradutorDados().excluir(this);
+	}
+
+	Boolean isSameNumberValue(AtomicLong a, AtomicLong b) {
+	  return a.equals(b);
+	}
+	
+	Boolean isSameReference(AtomicLong a, AtomicLong b) {
+	  return a.equals(b);
 	}
 
 	@Override
